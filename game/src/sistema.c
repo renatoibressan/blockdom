@@ -13,13 +13,13 @@
 #include "../include/utils.h"
 
 void executar() {
+    srand(time(NULL));
     limpar_tela();
     printf("\n============ BLOCKDOM ============\n");
     aplicar_delay(1);
     printf("\nDesenvolvido por Renato Bressan\n");
     aplicar_delay(1);
     limpar_tela();
-    srand(time(NULL));
     int jogos = 2;
     int capacidade[N], quantidade[N];
     bool ordenado[N];
