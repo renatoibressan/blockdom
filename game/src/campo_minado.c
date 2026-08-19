@@ -71,7 +71,7 @@ int contar_adjacentes(Coordenadas atuais, bool tem_bomba[N][N]) {
 }
 
 void modificar_campo(Coordenadas atuais, bool tem_bomba[N][N], bool foi_escavado[N][N], char campo[N][N], int *escavados) {
-    if (!eh_coordenada_valida(atuais.x) || !eh_coordenada_valida(atuais.y)) return;
+    if (!eh_coordenada_valida(atuais.x, N) || !eh_coordenada_valida(atuais.y, N)) return;
     if (foi_escavado[atuais.x][atuais.y]) return;
     if (tem_bomba[atuais.x][atuais.y]) return;
     foi_escavado[atuais.x][atuais.y] = true;

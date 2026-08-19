@@ -17,7 +17,7 @@ bool salvar_dados(const char *caminho, Jogador *lista, int quantidade) {
         if (lista) fprintf(arquivo, "%s,%d,%d\n", lista[i].nome, lista[i].score_atual, lista[i].score_maximo);
     }
     fclose(arquivo);
-    printf("\nDados de %d jogadores salvos com sucesso!\n", quantidade);
+    printf("\nDados de %d jogadores salvos em '%s' com sucesso!\n", quantidade, caminho);
     aplicar_delay(1);
     return true;
 }
@@ -46,7 +46,7 @@ bool carregar_dados(const char *caminho, Jogador **lista, int *quantidade, int *
         (*quantidade)++;
     }
     fclose(arquivo);
-    printf("\nDados de %d jogadores carregados com sucesso!\n", (*quantidade));
+    printf("\nDados de %d jogadores carregados de '%s' com sucesso!\n", (*quantidade), caminho);
     aplicar_delay(1);
     return true;
 }

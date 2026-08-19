@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 
 #include "../include/jogo_da_velha.h"
@@ -32,7 +31,7 @@ void imprimir_tabuleiro(int jogadas, char tabuleiro[M][M], Jogador usuario) {
     printf("\nJogada: %d\n", jogadas);
 }
 
-bool venceu_partida(char jogador, char tabuleiro[M][M]) {
+bool venceu_tabuleiro(char jogador, char tabuleiro[M][M]) {
     if (jogador != 'X' && jogador != 'O') return false;
     for (int i = 0; i < M; i++) {
         if ((tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) || 

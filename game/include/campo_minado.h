@@ -6,6 +6,8 @@
 #include "../include/jogador.h"
 #include "../include/jogos_utils.h"
 
+#define N 10
+
 void inicializar_campo(char campo[N][N]);
 void inicializar_bombas(Coordenadas iniciais, Coordenadas bombas[N], bool tem_bomba[N][N]);
 void imprimir_campo(int jogadas, int remanescentes, char campo[N][N], Jogador usuario);

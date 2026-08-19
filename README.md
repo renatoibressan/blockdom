@@ -8,6 +8,7 @@ Coleção de replicações de diversos jogos na linguagem C, contando com recurs
 
 - Campo minado/Minesweeper (1 jogador)
 - Jogo da velha/Tic-tac-toe (2 jogadores)
+- Conecta 4/Connect-4 (2 jogadores)
 - Mais por vir...
 
 ## Quais outros recursos estão presentes?

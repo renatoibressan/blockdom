@@ -3,18 +3,15 @@
 
 #include <stdbool.h>
 
-#define M 3
-#define N 10
-
 typedef struct {
     int x;
     int y;
 } Coordenadas;
 
-void inicializar_vetor(int v[N], int n, int val);
-void inicializar_vetor_bool(bool v[N], int n, bool status);
-void inicializar_mapa_bool(int n, bool mapa[n][n]);
-bool eh_coordenada_valida(int c);
-Coordenadas ler_coordenadas(const char *mensagem);
+void inicializar_vetor(int v[], int n, int val);
+void inicializar_vetor_bool(bool v[], int n, bool status);
+void inicializar_mapa_bool(int l, int c, bool mapa[l][c]);
+bool eh_coordenada_valida(int c, int n);
+Coordenadas ler_coordenadas(const char *mensagem, int n);
 
 #endif

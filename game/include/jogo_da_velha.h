@@ -6,8 +6,10 @@
 #include "../include/jogador.h"
 #include "../include/jogos_utils.h"
 
+#define M 3
+
 void inicializar_tabuleiro(char tabuleiro[M][M]);
 void imprimir_tabuleiro(int jogadas, char tabuleiro[M][M], Jogador usuario);
-bool venceu_partida(char jogador, char tabuleiro[M][M]);
+bool venceu_tabuleiro(char jogador, char tabuleiro[M][M]);
 
 #endif
