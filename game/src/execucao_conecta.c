@@ -13,7 +13,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
     bool foi_marcado[L][C];
     int marcados = 0, jogadas = 1;
     char nome[256];
-    aplicar_delay(1);
+    aplicar_delay(1000);
     int escolha1 = 0;
     if (*quantidade > 0) {
         for (int i = 0; i < *quantidade; i++) {
@@ -33,7 +33,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
     }
     int i1 = (escolha1 == 0) ? *quantidade - 1 : escolha1 - 1;
     printf("\nJogador %s selecionado!\n", (*jogadores)[i1].nome);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     limpar_tela();
     int escolha2 = 0;
     if (*quantidade > 1) {
@@ -54,12 +54,12 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
     }
     int i2 = (escolha2 == 0) ? *quantidade - 1 : escolha2 - 1;
     printf("\nJogador %s selecionado!\n", (*jogadores)[i2].nome);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     limpar_tela();
     int moeda = rand() % 2;
     if (moeda == 0) trocar_valores(&i1, &i2);
     printf("\n1o jogador: %s ('X')\n2o jogador: %s ('O')\n", (*jogadores)[i1].nome, (*jogadores)[i2].nome);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     limpar_tela();
     inicializar_grade(grade);
     inicializar_mapa_bool(L, C, foi_marcado);
@@ -74,7 +74,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
         if (venceu_grade('X', grade)) {
             limpar_tela();
             imprimir_grade(jogadas, grade, (*jogadores)[i1]);
-            aplicar_delay(1);
+            aplicar_delay(1000);
             printf("\nO jogador %s venceu a partida!\n\n", (*jogadores)[i1].nome);
             (*jogadores)[i1].score_atual += 2;
             if ((*jogadores)[i1].score_atual > (*jogadores)[i1].score_maximo) (*jogadores)[i1].score_maximo = (*jogadores)[i1].score_atual;
@@ -84,7 +84,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
             limpar_tela();
             imprimir_grade(jogadas, grade, (*jogadores)[i1]);
             printf("\nGRADE CHEIA!\n");
-            aplicar_delay(1);
+            aplicar_delay(1000);
             inicializar_grade(grade);
             inicializar_mapa_bool(L, C, foi_marcado);
             (*jogadores)[i1].score_atual++;
@@ -105,7 +105,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
         if (venceu_grade('O', grade)) {
             limpar_tela();
             imprimir_grade(jogadas, grade, (*jogadores)[i2]);
-            aplicar_delay(1);
+            aplicar_delay(1000);
             printf("\nO jogador %s venceu a partida!\n\n", (*jogadores)[i2].nome);
             (*jogadores)[i2].score_atual += 2;
             if ((*jogadores)[i2].score_atual > (*jogadores)[i2].score_maximo) (*jogadores)[i2].score_maximo = (*jogadores)[i2].score_atual;
@@ -115,7 +115,7 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
             limpar_tela();
             imprimir_grade(jogadas, grade, (*jogadores)[i2]);
             printf("\nGRADE CHEIA!\n");
-            aplicar_delay(1);
+            aplicar_delay(1000);
             inicializar_grade(grade);
             inicializar_mapa_bool(L, C, foi_marcado);
             (*jogadores)[i1].score_atual++;
@@ -127,5 +127,5 @@ void conecta_4(Jogador **jogadores, int *quantidade, int *capacidade, bool *orde
             continue;
         }
     }
-    aplicar_delay(1);
+    aplicar_delay(1000);
 }

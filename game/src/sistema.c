@@ -15,11 +15,11 @@
 void executar() {
     srand(time(NULL));
     limpar_tela();
-    aplicar_delay(1);
+    aplicar_delay(1000);
     printf("\n================== BLOCKDOM ==================\n");
-    aplicar_delay(1);
+    aplicar_delay(1000);
     printf("\nDesenvolvido por Renato Ikeda Bressan\n");
-    aplicar_delay(1);
+    aplicar_delay(1000);
     limpar_tela();
     int jogos = 3;
     int capacidade[T], quantidade[T];
@@ -42,15 +42,15 @@ void executar() {
         bool encerrado = false;
         int idx = -1;
         limpar_tela();
-        aplicar_delay(1);
+        aplicar_delay(1000);
         printf("\nExecutar:\n1. MINESWEEPER (1P)\n2. TIC-TAC-TOE (2P)\n3. CONNECT-4 (2P)\n");
         printf("\nConsultar ranking:\n4. MINESWEEPER\n5. TIC-TAC-TOE\n6. CONNECT-4\n");
         printf("\nOutros:\n0. Encerrar o jogo\n");
         int jogo = ler_inteiro("\nEscolha uma das opcoes acima: ");
         switch (jogo) {
             case 1: {
-                printf("\nIniciando MINESWEEPER...\n");
-                aplicar_delay(1);
+                printf("\nIniciando MINESWEEPER");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 0;
@@ -58,8 +58,8 @@ void executar() {
                 break;
             }
             case 2: {
-                printf("\nIniciando TIC-TAC-TOE...\n");
-                aplicar_delay(1);
+                printf("\nIniciando TIC-TAC-TOE");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 1;
@@ -67,8 +67,8 @@ void executar() {
                 break;
             }
             case 3: {
-                printf("\nIniciando CONNECT-4...\n");
-                aplicar_delay(1);
+                printf("\nIniciando CONNECT-4");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 2;
@@ -76,8 +76,8 @@ void executar() {
                 break;
             }
             case 4: {
-                printf("\nAbrindo ranking de MINESWEEPER...\n");
-                aplicar_delay(1);
+                printf("\nAbrindo ranking de MINESWEEPER");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 0;
@@ -85,8 +85,8 @@ void executar() {
                 break;
             }
             case 5: {
-                printf("\nAbrindo ranking de TIC-TAC-TOE...\n");
-                aplicar_delay(1);
+                printf("\nAbrindo ranking de TIC-TAC-TOE");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 1;
@@ -94,8 +94,8 @@ void executar() {
                 break;
             }
             case 6: {
-                printf("\nAbrindo ranking de CONNECT-4...\n");
-                aplicar_delay(1);
+                printf("\nAbrindo ranking de CONNECT-4");
+                imprimir_com_delay("...", 500);
                 printf("\n");
                 limpar_tela();
                 idx = 2;
@@ -112,8 +112,8 @@ void executar() {
             }
         }
         if (encerrado) {
-            printf("\nSaindo do jogo...\n");
-            aplicar_delay(1);
+            printf("\nSaindo do jogo");
+            imprimir_com_delay("...", 500);
             printf("\n");
             break;
         }
@@ -128,7 +128,7 @@ void executar() {
     salvar_dados("data/campominado.csv", jogadores[0], quantidade[0]);
     salvar_dados("data/jogodavelha.csv", jogadores[1], quantidade[1]);
     salvar_dados("data/conecta4.csv", jogadores[2], quantidade[2]);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     limpar_tela();
     for (int i = 0; i < jogos; i++) {
         free(jogadores[i]);
@@ -142,5 +142,5 @@ void consultar_ranking(Jogador **jogadores, int quantidade, bool *ordenado) {
         *ordenado = true;
     }
     exibir_ranking("RANKING ATUAL:\n", *jogadores, quantidade);
-    aplicar_delay(1);
+    aplicar_delay(1000);
 }

@@ -3,20 +3,12 @@
 #include <string.h>
 
 #ifdef _WIN32
-#include <windows.h>
+    #include <windows.h>
 #else
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 #include "../include/utils.h"
-
-void aplicar_delay(int s) {
-#ifdef _WIN32
-    Sleep(1000 * s);
-#else
-    sleep(s);
-#endif
-}
 
 void limpar_tela() {
 #ifdef _WIN32
@@ -24,6 +16,22 @@ void limpar_tela() {
 #else
     system("clear");
 #endif
+}
+
+void aplicar_delay(int ms) {
+#ifdef _WIN32
+    Sleep(ms);
+#else
+    usleep(ms * 1000);
+#endif
+}
+
+void imprimir_com_delay(const char *mensagem, int ms) {
+    for (int i = 0; mensagem[i] != '\0'; i++) {
+        printf("%c", mensagem[i]);
+        fflush(stdout);
+        aplicar_delay(ms);
+    }
 }
 
 void limpar_buffer() {

@@ -17,7 +17,7 @@ void campo_minado(Jogador **jogadores, int *quantidade, int *capacidade, bool *o
     int jogadas = 1, remanescentes = N;
     bool venceu = true;
     char nome[256];
-    aplicar_delay(1);
+    aplicar_delay(1000);
     int escolha = 0;
     if (*quantidade > 0) {
         for (int i = 0; i < *quantidade; i++) {
@@ -61,9 +61,9 @@ void campo_minado(Jogador **jogadores, int *quantidade, int *capacidade, bool *o
             if ((*jogadores)[idx].score_atual > (*jogadores)[idx].score_maximo) (*jogadores)[idx].score_maximo = (*jogadores)[idx].score_atual;
             marcar_bombas_remanescentes(bombas, campo, foi_escavado);
             imprimir_campo(jogadas, remanescentes, campo, (*jogadores)[idx]);
-            aplicar_delay(1);
+            aplicar_delay(1000);
             printf("\nPARABENS! Voce desarmou todas as bombas!\n\n");
-            aplicar_delay(1);
+            aplicar_delay(1000);
             venceu = true;
             continue;
         }
@@ -76,32 +76,32 @@ void campo_minado(Jogador **jogadores, int *quantidade, int *capacidade, bool *o
         }
         if (opcao == 0) {
             printf("\nSaindo do jogo...\n");
-            aplicar_delay(1);
+            aplicar_delay(1000);
             printf("\n");
             break;
         }
         Coordenadas atuais = ler_coordenadas("\nInsira as coordenadas desejadas:\n", N);
         if (foi_escavado[atuais.x][atuais.y]) {
             printf("\nBloco ja escavado\n(Entradas descartadas)\n");
-            aplicar_delay(1);
+            aplicar_delay(1000);
             continue;
         }
         switch (opcao) {
             case 1: {
                 if (campo[atuais.x][atuais.y] == '*') {
                     printf("\nBloco marcado\n(Entradas descartadas)\n");
-                    aplicar_delay(1);
+                    aplicar_delay(1000);
                     continue;
                 }
                 if (tem_bomba[atuais.x][atuais.y]) {
                     (*jogadores)[idx].score_atual = 0;
                     explodiu = true;
                     printf("\nKABOOM! Voce escavou uma bomba!\n");
-                    aplicar_delay(1);
+                    aplicar_delay(1000);
                     limpar_tela();
                     marcar_bombas_remanescentes(bombas, campo, foi_escavado);
                     imprimir_campo(jogadas, remanescentes, campo, (*jogadores)[idx]);
-                    aplicar_delay(1);
+                    aplicar_delay(1000);
                     imprimir_bombas(bombas);
                     break;
                 }
@@ -127,5 +127,5 @@ void campo_minado(Jogador **jogadores, int *quantidade, int *capacidade, bool *o
         }
         if (explodiu) break;
     }
-    aplicar_delay(1);
+    aplicar_delay(1000);
 }

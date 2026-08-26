@@ -9,7 +9,7 @@ bool salvar_dados(const char *caminho, Jogador *lista, int quantidade) {
     FILE *arquivo = fopen(caminho, "w");
     if (!arquivo) {
         printf("\nNao foi possivel abrir o arquivo!\n");
-        aplicar_delay(1);
+        aplicar_delay(1000);
         return false;
     }
     fprintf(arquivo, "Nome,Score atual,Score maximo\n");
@@ -18,7 +18,7 @@ bool salvar_dados(const char *caminho, Jogador *lista, int quantidade) {
     }
     fclose(arquivo);
     printf("\nDados de %d jogadores salvos em '%s' com sucesso!\n", quantidade, caminho);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     return true;
 }
 
@@ -26,7 +26,7 @@ bool carregar_dados(const char *caminho, Jogador **lista, int *quantidade, int *
     FILE *arquivo = fopen(caminho, "r");
     if (!arquivo) {
         printf("\nNao foi possivel abrir o arquivo!\n");
-        aplicar_delay(1);
+        aplicar_delay(1000);
         return false;
     }
     fscanf(arquivo, "%*[^\n]\n");
@@ -36,7 +36,7 @@ bool carregar_dados(const char *caminho, Jogador **lista, int *quantidade, int *
             Jogador *temp = realloc(*lista, (*capacidade)*sizeof(Jogador));
             if (!temp) {
                 printf("\nErro ao realocar memoria!\n");
-                aplicar_delay(1);
+                aplicar_delay(1000);
                 fclose(arquivo);
                 return false;
             }
@@ -47,6 +47,6 @@ bool carregar_dados(const char *caminho, Jogador **lista, int *quantidade, int *
     }
     fclose(arquivo);
     printf("\nDados de %d jogadores carregados de '%s' com sucesso!\n", (*quantidade), caminho);
-    aplicar_delay(1);
+    aplicar_delay(1000);
     return true;
 }
